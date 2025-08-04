@@ -9,11 +9,11 @@ const SECRET = process.env.QUESTION_GENERATION_SECRET || 'pythagoras'
 
 console.log('🕐 Starting local cron service for question generation...')
 console.log(`📡 Will call: ${BASE_URL}/api/generate-questions`)
-console.log(`⏰ Schedule: Every hour`)
+console.log(`⏰ Schedule: Once per day at midnight`)
 console.log('')
 
-// Schedule question generation every hour
-cron.schedule('0 * * * *', async () => {
+// Schedule question generation once per day at midnight
+cron.schedule('0 0 * * *', async () => {
   try {
     console.log(`🔄 [${new Date().toLocaleString()}] Generating questions automatically...`)
     
