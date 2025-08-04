@@ -305,14 +305,14 @@ async function scrape0GContent(): Promise<string[]> {
       const contentMatches = html.match(/<p[^>]*>([^<]+)<\/p>/g)
       
       if (titleMatches) {
-        titleMatches.slice(0, 20).forEach(match => {
+        titleMatches.slice(0, 20).forEach((match: string) => {
           const title = match.replace(/<[^>]+>/g, '').trim()
           if (title.length > 10) content.push(title)
         })
       }
       
       if (contentMatches) {
-        contentMatches.slice(0, 30).forEach(match => {
+        contentMatches.slice(0, 30).forEach((match: string) => {
           const text = match.replace(/<[^>]+>/g, '').trim()
           if (text.length > 20) content.push(text)
         })
